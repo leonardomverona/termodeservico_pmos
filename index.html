@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Serviço - Public Management OS</title>
+
+    <!-- Chosen Palette: Serene Professional -->
+    <!-- Application Structure Plan: A single-page application with a fixed sidebar navigation for quick access to different policy sections. The main content is presented in a single, readable column. This structure was chosen because a terms of service document is text-heavy, and user experience is best served by prioritizing readability and fast, intuitive navigation to specific topics. The smooth-scrolling sidebar allows users to easily jump to the information they need without getting lost. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Section titles (e.g., "1. Aceitação dos Termos"). Goal: Navigation. Viz/Method: Fixed sidebar navigation menu (`<nav>`). Interaction: On-click smooth scroll to the section anchor. Justification: Standard, intuitive UX for long-form content. Library: Vanilla JS.
+        - Report Info: Section content (paragraphs, lists). Goal: Inform. Viz/Method: Semantic HTML (`<p>`, `<ul>`, `<li>`, `<strong>`). Interaction: None. Justification: Maximum readability. Library: N/A.
+        - Report Info: Key concepts (User Accounts, User Content). Goal: Emphasize. Viz/Method: Unicode icons from Font Awesome next to headings. Interaction: None. Justification: Icons provide quick visual context, improving scannability. Library: Font Awesome.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" xintegrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Cor da paleta: Serene Professional */
+        :root {
+            --bg-color: #F8F9FA; /* Off-white */
+            --text-primary: #212529; /* Near black for readability */
+            --text-secondary: #6C757D; /* Grey for subtitles */
+            --accent-color: #005A9C; /* Professional blue */
+            --border-color: #DEE2E6; /* Light grey for borders */
+            --nav-bg-color: #FFFFFF;
+        }
+        .bg-main { background-color: var(--bg-color); }
+        .text-main-primary { color: var(--text-primary); }
+        .text-main-secondary { color: var(--text-secondary); }
+        .bg-accent { background-color: var(--accent-color); }
+        .text-accent { color: var(--accent-color); }
+        .border-main { border-color: var(--border-color); }
+        .nav-bg { background-color: var(--nav-bg-color); }
+    </style>
+</head>
+<body class="bg-main text-main-primary">
+
+    <div class="flex min-h-screen">
+        <!-- Navegação Lateral (Sidebar) -->
+        <aside id="sidebar" class="w-64 nav-bg p-6 border-r border-main fixed top-0 left-0 h-full transform -translate-x-full md:translate-x-0 md:block transition-transform duration-300 ease-in-out z-20">
+            <h1 class="text-xl font-bold text-accent mb-8">Navegação</h1>
+            <nav>
+                <ul class="space-y-3">
+                    <li><a href="#section-1" class="font-semibold hover:text-accent transition-colors">1. Aceitação dos Termos</a></li>
+                    <li><a href="#section-2" class="font-semibold hover:text-accent transition-colors">2. Descrição do Serviço</a></li>
+                    <li><a href="#section-3" class="font-semibold hover:text-accent transition-colors">3. Contas de Usuário</a></li>
+                    <li><a href="#section-4" class="font-semibold hover:text-accent transition-colors">4. Conteúdo do Usuário</a></li>
+                    <li><a href="#section-5" class="font-semibold hover:text-accent transition-colors">5. Serviços de Terceiros</a></li>
+                    <li><a href="#section-6" class="font-semibold hover:text-accent transition-colors">6. Isenção e Limitação</a></li>
+                    <li><a href="#section-7" class="font-semibold hover:text-accent transition-colors">7. Modificações</a></li>
+                    <li><a href="#section-8" class="font-semibold hover:text-accent transition-colors">8. Rescisão</a></li>
+                    <li><a href="#section-9" class="font-semibold hover:text-accent transition-colors">9. Lei Aplicável</a></li>
+                    <li><a href="#section-10" class="font-semibold hover:text-accent transition-colors">10. Contacto</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Botão para abrir sidebar em mobile -->
+        <button id="sidebar-toggle" class="md:hidden fixed top-4 left-4 z-30 p-2 bg-accent text-white rounded-md">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Conteúdo Principal -->
+        <main class="w-full md:ml-64 p-6 sm:p-8 md:p-12">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Cabeçalho -->
+                <header class="mb-12 border-b border-main pb-6">
+                    <h1 class="text-4xl md:text-5xl font-bold text-main-primary mb-2">Termos de Serviço</h1>
+                    <p class="text-main-secondary">Para: <span class="font-semibold text-accent">Public Management OS</span></p>
+                    <p class="text-sm text-main-secondary mt-2">Última atualização: 25 de junho de 2025</p>
+                </header>
+
+                <div class="prose max-w-none text-lg leading-relaxed space-y-8">
+                    <p>Bem-vindo(a) ao Public Management OS (a "Aplicação"). Estes Termos de Serviço ("Termos") governam o seu acesso e uso da nossa aplicação e serviços. Por favor, leia-os com atenção. Ao aceder ou usar a Aplicação, você concorda em cumprir e ficar vinculado por estes Termos. Se não concordar com estes Termos, não utilize a Aplicação.</p>
+
+                    <!-- Seção 1 -->
+                    <section id="section-1" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-check-square text-accent mr-3"></i> 1. Aceitação dos Termos</h2>
+                        <p>Ao criar uma conta e utilizar a Aplicação, você confirma que leu, entendeu e aceitou estes Termos na sua totalidade. Você também declara que tem idade legal para celebrar um acordo vinculativo.</p>
+                    </section>
+
+                    <!-- Seção 2 -->
+                    <section id="section-2" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-briefcase text-accent mr-3"></i> 2. Descrição do Serviço</h2>
+                        <p>O Public Management OS é uma aplicação web que fornece um conjunto de ferramentas de gestão (como Matriz SWOT, Cronograma Gantt, entre outras). A Aplicação utiliza a sua Conta Google para autenticação e o seu Google Drive pessoal para o armazenamento de todos os ficheiros e dados que você cria. Nós não alojamos nem armazenamos o seu conteúdo de trabalho nos nossos servidores.</p>
+                    </section>
+                    
+                    <!-- Seção 3 -->
+                    <section id="section-3" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-user-circle text-accent mr-3"></i> 3. Contas de Usuário</h2>
+                        <ul class="list-none space-y-4">
+                            <li><strong>Autenticação:</strong> O acesso à Aplicação requer autenticação através da sua Conta Google. Você é responsável por manter a segurança da sua Conta Google e por todas as atividades que ocorrem através dela na nossa Aplicação.</li>
+                            <li><strong>Responsabilidade:</strong> Você concorda em fornecer informações precisas durante o processo de autenticação e em não se passar por outra pessoa ou entidade.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Seção 4 -->
+                    <section id="section-4" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-file-alt text-accent mr-3"></i> 4. Conteúdo do Usuário</h2>
+                        <ul class="list-none space-y-4">
+                             <li><strong>Propriedade e Controlo:</strong> Todo o conteúdo que você cria usando a Aplicação (documentos, dados, textos, etc.), doravante "Conteúdo do Usuário", é da sua inteira responsabilidade. Este conteúdo é armazenado na sua conta pessoal do Google Drive, numa pasta criada pela Aplicação (`Public Management OS Files`). Você mantém a propriedade e o controlo total sobre o seu Conteúdo do Usuário.</li>
+                             <li><strong>Gestão:</strong> A gestão, partilha, eliminação e backup do seu Conteúdo do Usuário são da sua responsabilidade e devem ser realizados diretamente através da sua conta Google Drive.</li>
+                             <li><strong>Uso Aceitável:</strong> Você concorda em não usar a Aplicação para criar ou armazenar qualquer Conteúdo do Usuário que seja ilegal, ofensivo, fraudulento ou que infrinja os direitos de terceiros (incluindo direitos de autor e propriedade intelectual).</li>
+                        </ul>
+                    </section>
+
+                    <!-- Seção 5 -->
+                    <section id="section-5" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-handshake text-accent mr-3"></i> 5. Uso de Serviços de Terceiros</h2>
+                        <p>A Aplicação depende de serviços fornecidos por terceiros, nomeadamente Google (para Autenticação e Google Drive). O seu uso desses serviços está sujeito aos respetivos termos de serviço e políticas de privacidade.</p>
+                        <ul class="list-disc list-inside mt-4 space-y-2">
+                             <li><strong>Termos de Serviço do Google:</strong> <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="text-accent font-semibold hover:underline">google.com/intl/pt-BR/policies/terms/</a></li>
+                             <li><strong>Política de Privacidade do Google:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-accent font-semibold hover:underline">google.com/intl/pt-BR/policies/privacy/</a></li>
+                        </ul>
+                        <p class="mt-4">Não nos responsabilizamos pela disponibilidade, segurança ou funcionalidade de quaisquer serviços de terceiros.</p>
+                    </section>
+                    
+                    <!-- Seção 6 -->
+                    <section id="section-6" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-exclamation-triangle text-accent mr-3"></i> 6. Isenção de Garantias e Limitação de Responsabilidade</h2>
+                        <ul class="list-none space-y-4">
+                            <li><strong>"COMO ESTÁ":</strong> A Aplicação é fornecida "como está" e "conforme disponível", sem garantias de qualquer tipo, expressas ou implícitas. Não garantimos que a Aplicação será ininterrupta, segura, livre de erros ou que atenderá às suas necessidades específicas.</li>
+                            <li><strong>Perda de Dados:</strong> Uma vez que o seu conteúdo é armazenado no seu Google Drive pessoal, não nos responsabilizamos por qualquer perda de dados. A responsabilidade pela segurança e backup dos seus ficheiros é sua.</li>
+                            <li><strong>Limitação de Responsabilidade:</strong> Em nenhuma circunstância seremos responsáveis por quaisquer danos diretos, indiretos, incidentais, especiais ou consequentes resultantes do uso ou da incapacidade de usar a Aplicação.</li>
+                        </ul>
+                    </section>
+                    
+                    <!-- Seção 7 -->
+                    <section id="section-7" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-sync-alt text-accent mr-3"></i> 7. Modificações no Serviço</h2>
+                        <p>Reservamo-nos o direito de modificar, suspender ou descontinuar a Aplicação (ou qualquer parte dela) a qualquer momento, com ou sem aviso prévio. Você concorda que não seremos responsáveis perante si ou terceiros por qualquer modificação, suspensão ou descontinuação do Serviço.</p>
+                    </section>
+
+                    <!-- Seção 8 -->
+                    <section id="section-8" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-times-circle text-accent mr-3"></i> 8. Rescisão</h2>
+                        <ul class="list-none space-y-4">
+                            <li><strong>Por si:</strong> Você pode parar de usar a Aplicação a qualquer momento. Para encerrar a sua conta de forma efetiva, basta revogar as permissões da Aplicação na sua Conta Google e apagar a pasta de dados do seu Google Drive.</li>
+                            <li><strong>Por nós:</strong> Reservamo-nos o direito de suspender ou encerrar o seu acesso à Aplicação, sem aviso prévio, por qualquer violação destes Termos.</li>
+                        </ul>
+                    </section>
+                    
+                    <!-- Seção 9 -->
+                    <section id="section-9" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-gavel text-accent mr-3"></i> 9. Lei Aplicável</h2>
+                        <p>Estes Termos serão regidos e interpretados de acordo com as leis da República Federativa do Brasil, sem consideração aos seus conflitos de provisões legais.</p>
+                    </section>
+
+                    <!-- Seção 10 -->
+                    <section id="section-10" class="pt-8">
+                        <h2 class="text-3xl font-bold text-main-primary mb-4 flex items-center"><i class="fas fa-envelope text-accent mr-3"></i> 10. Contacto</h2>
+                        <p>Se tiver alguma dúvida sobre estes Termos de Serviço, por favor, entre em contacto connosco:</p>
+                        <div class="mt-4 p-4 bg-gray-100 rounded-lg">
+                            <p class="font-semibold">Leonardo Verona</p>
+                            <p class="text-main-secondary">leomarques20@gmail.com</p>
+                            <a href="https://leonardomverona.github.io/PublicManagementOS/" target="_blank" rel="noopener noreferrer" class="text-accent font-semibold hover:underline">https://leonardomverona.github.io/PublicManagementOS/</a>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            
+            // Toggle sidebar em mobile
+            sidebarToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                sidebar.classList.toggle('-translate-x-full');
+            });
+
+            // Fechar sidebar ao clicar fora em mobile
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth < 768 && !sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            });
+
+            // Smooth scroll para âncoras da navegação
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if(targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+
+                    // Fechar sidebar após clicar num link em mobile
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.add('-translate-x-full');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
